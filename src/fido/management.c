@@ -107,7 +107,7 @@ int man_get_config() {
     res_APDU_size += 4;
     res_APDU[res_APDU_size++] = TAG_FORM_FACTOR;
     res_APDU[res_APDU_size++] = 1;
-    res_APDU[res_APDU_size++] = 0x01;
+    res_APDU[res_APDU_size++] = 0x01; // Yubikey FormFactor.usbAKeychain
     res_APDU[res_APDU_size++] = TAG_VERSION;
     res_APDU[res_APDU_size++] = 3;
     res_APDU[res_APDU_size++] = PICO_FIDO_VERSION_MAJOR;
