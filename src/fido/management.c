@@ -108,7 +108,13 @@ int man_get_config(void) {
     res_APDU_size += 4;
     res_APDU[res_APDU_size++] = TAG_FORM_FACTOR;
     res_APDU[res_APDU_size++] = 1;
+#if defined WAVESHARE_RP2350_ONE
+    res_APDU[res_APDU_size++] = 0x01; // Yubikey FormFactor.usbAKeychain
+#elif defined WAVESHARE_RP2350_ZERO
+    res_APDU[res_APDU_size++] = 0x03; // Yubikey FormFactor.usbCKeychain
+#else
     res_APDU[res_APDU_size++] = 0x01;
+#endif
     res_APDU[res_APDU_size++] = TAG_VERSION;
     res_APDU[res_APDU_size++] = 3;
     res_APDU[res_APDU_size++] = PICO_FIDO_VERSION_MAJOR;
